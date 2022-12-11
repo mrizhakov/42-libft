@@ -6,15 +6,50 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/11 17:35:07 by mrizakov         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:01:47 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
 #include<stdlib.h>
+#include"libft.h"
 
-void *calloc(size_t nmemb, size_t size)
+/*
+void	*ft_bzero(void *s, size_t n)
 {
+	char	*new;
+	int n_int;
+	int i;
+
+	i = 0;
+	n_int = (int)n;
+	new = (char *)s;
+	while (i != n_int)
+	{
+		new[i] = '\0';
+		i++;
+	}
+	return ((void *)s);
+}
+*/
+
+void	*ft_calloc(size_t nelem, size_t elsize)
+{
+	void	*ptr;
+
+	ptr = malloc (nelem * elsize);
+	if (ptr == 0)
+	{
+		return (ptr);
+	}
+	ft_bzero(ptr, nelem *elsize);
+	return (ptr);
+}
+	//s_size = ft_strlen((char *)s);
+	
+	//s_new = (sizeof(elsize))malloc(nelem);
+	/*	
+
 	
 	unsigned int	counter;
 	unsigned char 	*s1_new;
@@ -32,22 +67,14 @@ void *calloc(size_t nmemb, size_t size)
 		&& (counter < (unsigned int)n - 1))
 		counter++;
 	return ((unsigned char)s1_new[counter] - (unsigned char)s2_new[counter]);
+	*/
+	
+/*
+int main(void)
+{
+	
+	ft_calloc(5, 3);
 	
 	return (0);
 }
-
-int main(void)
-{
-	char string1[] = "test\200";
-	char string2[] = "test\0";
-	unsigned int n;
-	int result;
-	
-	n = 6;
-	result = ft_calloc(string1, string2, n);
-	printf("%d \n", result);
-
-	printf("%s \n", string1);
-	printf("%s \n", string2);
-	return (result);
-}
+*/
