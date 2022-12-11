@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/11 20:01:47 by mrizakov         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:11:34 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	*ft_bzero(void *s, size_t n)
 void	*ft_calloc(size_t nelem, size_t elsize)
 {
 	void	*ptr;
+	if (nelem * elsize > 2147483647)
+	{
+		return (NULL);
+	}
 
 	ptr = malloc (nelem * elsize);
 	if (ptr == 0)
