@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:02:54 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/11 20:21:33 by mrizakov         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:36:13 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ char			*ft_strdup(const char *s);
 void			*ft_calloc(size_t nelem, size_t elsize);
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);
+
+char 			*ft_strjoin(char const *s1, char const *s2);
+
 
 
 #endif
