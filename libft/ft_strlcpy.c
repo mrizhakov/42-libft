@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:45:43 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/09 19:39:28 by mrizakov         ###   ########.fr       */
+/*   Updated: 2022/12/12 21:17:39 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,31 +29,25 @@ int	ft_strlen(char *str)
 
 size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int new_size;
-	int i;
-	int src_length;
-
-	new_size = (int)size;
+	size_t i;
+	
+	if (!dst || !src)
+		return (0);
+	
 	i = 0;
-	src_length = ft_strlen((char *)src);
-	if (src[i] == '\0' && new_size != 0)
-	{
-	dst[i] = '\0';
-	return ((size_t)src_length);
-	}
-	if (src[src_length] != '\0' || new_size == 0 || src_length == 0)
-	{
-	return ((size_t)src_length);
-	}
-	while (i != new_size - 1)
-	{
-		dst[i] = src[i];
+	if (size > 0)
+		{
+			while (src[i] && i < (size - 1))
+				{
+					dst[i] = src[i];
+					i++;
+				}
+			dst[i] = '\0';
+		}
+	while (src[i])
 		i++;
-	}
-	dst[i] = '\0';
-	return ((size_t)src_length);
+	return (i);
 }
-
 /*
 int main(void)
 {

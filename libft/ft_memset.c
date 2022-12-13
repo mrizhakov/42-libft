@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/09 16:56:32 by mrizakov         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:21:04 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return ((void *)s);
 }
+
 /*
 int	main(void)
 {

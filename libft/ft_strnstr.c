@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:45:43 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/11 16:27:45 by mrizakov         ###   ########.fr       */
+/*   Updated: 2022/12/12 20:45:13 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include"libft.h"
 
 
-
+/*
 int	ft_strlen(char *str)
 {
 	int	counter;
@@ -27,56 +27,71 @@ int	ft_strlen(char *str)
 	return (counter);
 }
 
+int 			ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	
+	unsigned int	counter;
+	unsigned char 	*s1_new;
+	unsigned char 	*s2_new;
+
+	s1_new = (unsigned char *)s1;
+	s2_new = (unsigned char *)s2;
+
+	counter = 0;
+	if (n == 0)
+	{
+		return (0);
+	}
+	while (s1_new[counter] == s2_new[counter]
+		&& (counter < (unsigned int)n - 1))
+		counter++;
+	return ((unsigned char)s1_new[counter] - (unsigned char)s2_new[counter]);
+	
+	return (0);
+}
+*/
 
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
 	
-	unsigned int new_len;
-	int big_i;
-	int little_i;
-	char *big_new;
-	char *little_new;
+	unsigned int	new_len;
+	unsigned int	big_len;
+	unsigned int	little_len;
+	char 			*big_new;
+	char 			*little_new;
 	
-	big_i = 1;
-	little_i = 1;
+	big_len = ft_strlen(big);
+	little_len = ft_strlen(little);
 	big_new = (char *)big;
 	little_new = (char *)little;
 	new_len = (unsigned int)len;
-	if (ft_strlen((char *)little) == 0)
-	return  ((char *)big);
+		
+	if (!little_len)
+	return  ((char *)big_new);
 	
-	while (big_i <= ft_strlen(big_new) - ft_strlen(little_new)  && new_len != 0) 
+	while ((new_len >= ft_strlen(little_new)))
 	{
-		/*
-		printf("Big_i is: %d \n", big_i);
-		printf("New_len: %d \n", new_len);
-		printf("Big_new length is: %d \n", ft_strlen(big_new));
-		printf("Little_new length is: %d \n", ft_strlen(little_new));
-		*/
+		new_len--;
+		if (!ft_memcmp((const void *)big_new, (const void *)little_new, little_len))
+		return (char*)big_new;
+		big_new++;
+	}
 
-		while (little_i <= ft_strlen(little_new))
+/*	
+	while (big_i <= (int)ft_strlen(big_new) - (int)ft_strlen(little_new)  && new_len != 0) 
+	{
+		
+
+		while (little_i <= (int)ft_strlen(little_new))
 		{
-			/*
-			printf("Little_i is: %d \n", little_i);
-			printf("Big_i is: %d \n", big_i);
 			
-			printf("big[big_i + little_i] is: %c \n", big[big_i + little_i]);
-			printf("little_new[little_i] is: %c \n", little_new[little_i]);
-			*/
-
 			if (big[big_i + little_i] != little_new[little_i])
 			break;
-			/*
-			printf("little_i is: %d \n", little_i);
-			printf("(char *)little is: %d \n", ft_strlen((char *)little));
-			*/
+			
 
-			if (little_i == ft_strlen((char *)little))
+			if (little_i == (int)ft_strlen((char *)little))
 			{
-			/*	
-			printf("big_new[big_i] is: %c \n", big_new[big_i]);
-			printf("Returning big_new[big_i]: %c \n", big_new[big_i]);
-			*/
+			
 			return (&big_new[big_i]);
 			}
 			
@@ -85,7 +100,7 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 		big_i++;
 		new_len--;
 	}
-	
+*/
 	return (char *)NULL;
 	
 }

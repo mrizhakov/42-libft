@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:25:34 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/09 19:55:42 by mrizakov         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:44:23 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned int	str_c;
 	unsigned int	int_c;

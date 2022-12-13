@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/11 21:26:13 by mrizakov         ###   ########.fr       */
+/*   Updated: 2022/12/12 18:41:39 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include<stdlib.h>
 #include"libft.h"
 
-
+/*
 int	ft_strlen(char *str)
 {
 	int	counter;
@@ -26,7 +26,7 @@ int	ft_strlen(char *str)
 	}
 	return (counter);
 }
-
+*/
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
