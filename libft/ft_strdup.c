@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/11 19:18:30 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:20:58 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,25 +54,15 @@ void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t n)
 char	*ft_strdup(const char *s)
 {
 	char	*s_new;
-	int		s_size;
+	size_t		s_size;
 	int		i;
 
 	i = 0;
-	s_new = NULL;
-	s_size = ft_strlen((char *)s);
-	s_new = (char*)malloc(s_size + 1);
-	
-	/*
-	if (!((char*)malloc(s_size)))
-	{
-	printf("malloc works");
-	return NULL;
-	}
-	*/
-	
-	s_new = ft_memcpy(s_new, s, s_size);
-	s_new[s_size] = '\0';
-	return (s_new);
+	s_size = ft_strlen(s) + 1;
+	s_new = (char *)malloc(sizeof(*s_new) * s_size);
+	if (!s_new)
+		return (NULL);
+	return ((char *)ft_memcpy(s_new, s, s_size));
 }
 /*
 int	main(void)

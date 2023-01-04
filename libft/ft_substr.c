@@ -6,57 +6,64 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/12 18:41:39 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/01 21:26:00 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<stdlib.h>
 #include"libft.h"
 
-/*
-int	ft_strlen(char *str)
-{
-	int	counter;
+#include<stdio.h>
+#include<stdlib.h>
 
-	counter = 0;
-	while (str[counter] != '\0')
-	{
-		counter++;
-	}
-	return (counter);
+/*
+size_t ft_strlen(const char *str)
+{
+    size_t    counter;
+
+    counter = 0;
+    while (str[counter] != '\0')
+    {
+        counter++;
+    }
+    return (counter);
 }
 */
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char    *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*substr;
-	unsigned int	i;
-	unsigned int	len_new;
-	unsigned int	str_len;
-	
-	i = 0;
-	str_len = ft_strlen((char *)s);
-	len_new = (unsigned int)len;
-	if (!(substr = malloc (len_new + 1)))
-		return (void *)NULL;
-	if ((start + (unsigned int)len > str_len || start > str_len)) 
-		return (substr);
-	while (i != (unsigned int)len)
-	{
-		substr[i] = s[start + i];
-		i++;
-	}
+    char            *substr;
+    unsigned int    i;
+    unsigned int    str_len;
+	unsigned int	correct_size;
+    
+    i = 0;
+    str_len = ft_strlen((char *)s);
+	correct_size = 1;
+	if (start > str_len || len == 0)
+		correct_size = 1;
+	else if (len == 1)
+		correct_size = 2;
+	else if (len <= str_len - start)
+		correct_size = len + 1;
+	else if (len > str_len - start)
+		correct_size = str_len - start + 1;
+	if (!(substr = malloc(correct_size * sizeof(char))))
+		        return (void *)NULL;
+	while (i != correct_size - 1)
+    	{
+       		substr[i] = s[start + i];
+       		i++;
+  		}
 	substr[i] = '\0';
-	return (substr);
+	return (substr);  
 }
-	
+    
 /*
 int main(void)
 {
-	char	str[] = "lorem ipsum dolor sit amet";
-	printf("%s", ft_substr(str, 400, 20));
-	
-	return (0);
+    char    str[] = "tripouille";
+    printf("%s", ft_substr(str, 400, 20));
+    
+    return (0);
 }
 */
