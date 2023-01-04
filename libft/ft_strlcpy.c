@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:45:43 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/12 21:17:39 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:28:31 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t i;
 	
-	if (!dst || !src)
-		return (0);
+	//if (!dst || !src)
+	//	return (0);
 	
 	i = 0;
 	if (size > 0)
