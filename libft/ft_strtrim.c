@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/04 18:08:00 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:28:02 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,58 +75,53 @@ char	*ft_strdup(const char *s)
 
 int	ft_word_letter_compare(char const letter, char const *set)
 {
-	int i;
+	int	i;
 
-	i = 0;	
+	i = 0;
 	while (set[i] && set[i] != '\0')
 	{
 		if (letter == set[i])
-		return (1);		
+			return (1);
 		i++;
 	}
-	return (0);	
+	return (0);
 }
 
 char	*ft_copy_correct_str(int start, int end, char const *s1)
 {
-
-	char            *new_str;
-    unsigned int    new_str_i;
+	char			*new_str;
+	unsigned int	new_str_i;
 
 	new_str = NULL;
-    new_str_i = 0;
+	new_str_i = 0;
 	if (start > end)
-	return (ft_strdup(""));
+		return (ft_strdup(""));
 	new_str = malloc(end - start + 2);
-		if (!(new_str))
-	return (void *)NULL;
+	if (!(new_str))
+		return ((void *) NULL);
 	while (start <= end)
 	{
 		new_str[new_str_i] = s1[start];
 		start++;
 		new_str_i++;
 	}
-    new_str[new_str_i] = '\0';
-    return (new_str);    
+	new_str[new_str_i] = '\0';
+	return (new_str);
 }
 
-
-
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-    unsigned int    s1_i;
-    unsigned int    s1_len;
+	unsigned int	s1_i;
+	unsigned int	s1_len;
 	unsigned int	start;
 	unsigned int	end;
 
-		
 	if (s1 == NULL || s1[0] == '\0')
 		return (ft_strdup(""));
 	if (set == NULL)
 		return (ft_strdup((char *)s1));
-
-    s1_len = ft_strlen((char *)s1) - 1;
-    s1_i = 0;
+	s1_len = ft_strlen((char *)s1) - 1;
+	s1_i = 0;
 	while (ft_word_letter_compare(s1[s1_i], set) == 1 && s1[s1_i] != '\0')
 	{
 		s1_i++;

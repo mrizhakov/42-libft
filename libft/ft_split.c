@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/02 17:03:25 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:30:15 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include<stdlib.h>
 #include<unistd.h>
 
-
 char	**ft_free(char **strs, int j)
 {
 	while (j-- > 0)
@@ -25,47 +24,10 @@ char	**ft_free(char **strs, int j)
 	return (NULL);
 }
 
-/*
-size_t	ft_strlen(const char *str)
-{
-	size_t	counter;
-
-	counter = 0;
-	while (str[counter] != '\0')
-	{
-		counter++;
-	}
-	return (counter);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char			*substr;
-	unsigned int	i;
-	unsigned int	len_new;
-	unsigned int	str_len;
-	
-	i = 0;
-	str_len = ft_strlen((char *)s);
-	len_new = (unsigned int)len;
-	if (!(substr = malloc (len_new + 1)))
-		return (void *)NULL;
-	if ((start + (unsigned int)len > str_len || start > str_len)) 
-		return (substr);
-	while (i != (unsigned int)len)
-	{
-		substr[i] = s[start + i];
-		i++;
-	}
-	substr[i] = '\0';
-	return (substr);
-}
-*/
-
 int	ft_word_count(const char *str, char c)
 {
-	int i;
-	int trigger;
+	int	i;
+	int	trigger;
 
 	i = 0;
 	trigger = 0;
@@ -100,7 +62,7 @@ char	**ft_split(char const *s, char c)
 {
 	char			**array;	
 	unsigned int	word_count;
-	unsigned int 	i;
+	unsigned int	i;
 	unsigned int	len;
 	unsigned int	y;
 
@@ -109,10 +71,10 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	array = (char **)malloc((word_count + 1) * sizeof(char *));
 	if (!array)
-	return (NULL);
+		return (NULL);
 	while (++y < word_count)
 	{
-		while (s[i] == c )
+		while (s[i] == c)
 			i++;
 		len = ft_size_word(s, c, i);
 		array[y] = ft_substr(s, i, len);
@@ -121,7 +83,7 @@ char	**ft_split(char const *s, char c)
 		i = i + len;
 	}
 	array[y] = 0;
-	return (array);	
+	return (array);
 }
 
 /*

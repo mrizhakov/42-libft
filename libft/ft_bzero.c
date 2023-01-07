@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/09 16:59:25 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:20:45 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 void	*ft_bzero(void *s, size_t n)
 {
 	char	*new;
-	int n_int;
-	int i;
+	int		n_int;
+	int		i;
 
 	i = 0;
 	n_int = (int)n;

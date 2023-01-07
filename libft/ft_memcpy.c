@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/13 16:11:52 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:37:45 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,25 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
- 	unsigned int	new_n;
+	unsigned int	new_n;
 	char			*char_dest;
 	char			*char_src;
-	unsigned int 	i;
+	unsigned int	i;
 
 	char_dest = (char *)dest;
-	char_src =  (char *)src;
+	char_src = (char *)src;
 	i = 0;
 	new_n = (unsigned int)n;
-	
 	if (!dest && !src)
 	{
 		return (NULL);
 	}
-	
 	while (i < new_n)
 	{
 		char_dest[i] = char_src[i];
 		i++;
 	}
-	return (char_dest); 
-	
-
-/*		
-	while (n--)
-		((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
-	return (dest);
-
-	*/
+	return (char_dest);
 }
 /*
 int	main(void)
