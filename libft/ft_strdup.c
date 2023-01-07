@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/04 17:20:58 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:16:08 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t n)
 char	*ft_strdup(const char *s)
 {
 	char	*s_new;
-	size_t		s_size;
+	size_t	s_size;
 	int		i;
 
 	i = 0;

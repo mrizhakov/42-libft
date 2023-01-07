@@ -6,32 +6,28 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/04 18:43:36 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:20:31 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
+#include"libft.h"
 
-int 			ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	
 	unsigned int	counter;
-	unsigned char 	*s1_new;
-	unsigned char 	*s2_new;
+	unsigned char	*s1_new;
+	unsigned char	*s2_new;
 
 	s1_new = (unsigned char *)s1;
 	s2_new = (unsigned char *)s2;
-
 	counter = 0;
 	if (n == 0)
-	{
 		return (0);
-	}
 	while (s1_new[counter] == s2_new[counter]
 		&& (counter < (unsigned int)n - 1))
 		counter++;
 	return ((unsigned char)s1_new[counter] - (unsigned char)s2_new[counter]);
-	
 	return (0);
 }
 /*

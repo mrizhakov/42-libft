@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/13 16:57:53 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:43:13 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,20 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*new;
-	unsigned int 		i;
-	unsigned int 		new_size;
-	//unsigned char 		*new_str;
-	unsigned char 		c_new;
-	
+	unsigned int		i;
+	unsigned int		new_size;
+	unsigned char		c_new;
+
 	new = (unsigned char *)s;
 	new_size = (unsigned int)n;
 	i = 0;
 	c_new = (unsigned char)c;
-	/*
-	if (c_new == 0)
-	return	((void *)NULL);
-	*/
-
-while (n-- != 0) {
-        	if ((unsigned char)c == *new++) {
-			return (void *)(new - 1);
-		}
-	}
-	return NULL;
-/*
-	if (new_size == 0)
-	return	((void *)NULL);
-	
-	while (i != new_size - 1)
+	while (n-- != 0)
 	{
-		if (new[i] == c_new)
-		{
-			new_str = (unsigned char *)new + i;
-			return (new_str);
-		}
-		i++;
+		if ((unsigned char)c == *new++)
+			return ((void *)(new - 1));
 	}
-	return ((void *)NULL);
-	*/
+	return (NULL);
 }
 
 /*

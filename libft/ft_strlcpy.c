@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:45:43 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/04 18:28:31 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:48:33 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,20 @@ int	ft_strlen(char *str)
 }
 */
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	
-	//if (!dst || !src)
-	//	return (0);
-	
+	size_t	i;
+
 	i = 0;
 	if (size > 0)
+	{
+		while (src[i] && i < (size - 1))
 		{
-			while (src[i] && i < (size - 1))
-				{
-					dst[i] = src[i];
-					i++;
-				}
-			dst[i] = '\0';
+			dst[i] = src[i];
+			i++;
 		}
+		dst[i] = '\0';
+	}
 	while (src[i])
 		i++;
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/07 18:17:04 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:40:18 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ void	ft_putstr_fd(char *s, int fd)
 }
 */
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == INT_MIN)
 	{
 		ft_putstr_fd("-2147483648", fd);
-		return;
+		return ;
 	}	
 	if (n < 0)
 	{
-	ft_putchar_fd('-', fd);
-	n = -n;
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
 	if (n >= 10)
 	{

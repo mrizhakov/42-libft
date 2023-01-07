@@ -6,12 +6,11 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:45:43 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/04 20:56:59 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:47:11 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-
 #include<stdio.h>
 
 /*
@@ -53,13 +52,10 @@ int 			ft_memcmp(const void *s1, const void *s2, size_t n)
 */
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
-
-
-	unsigned int		big_i;
-	unsigned int		little_i;
+	unsigned int	big_i;
+	unsigned int	little_i;
 
 	big_i = 0;
-
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[big_i] && big_i < len)
@@ -67,7 +63,8 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 		little_i = 0;
 		if (big[big_i] == little[little_i])
 		{
-			while (big_i + little_i < len && big[big_i + little_i] == little[little_i])
+			while (big_i + little_i < len
+				&& big[big_i + little_i] == little[little_i])
 			{
 				little_i++;
 				if (!little[little_i])

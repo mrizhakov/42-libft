@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/05 17:02:13 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:44:33 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	size_t			len;
 	unsigned int	i;
 
-
 	if (!s || !f)
-		return;
-		
+		return ;
 	i = 0;
 	len = ft_strlen(s);
 	while (s[i] != '\0')
@@ -32,8 +30,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-
-
 
 /*
 int main(void)
