@@ -6,7 +6,7 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 13:59:24 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/09 18:09:41 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:23:48 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,18 @@ int    ft_strlen(char *str)
 }
 */
 
-char    *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    int     i;
-    char	*s_new;
-        
-    i = ft_strlen((char *)s);
-    s_new = (char *)s;
-    
-    while ((i != 0) && (s_new[i] != c))
-	{
+	int		i;
+	char	*s_new;
+
+	i = ft_strlen((char *)s);
+	s_new = (char *)s;
+	while ((i != 0) && (s_new[i] != (char)c))
 		i--;
-	}        
-    if (s_new[i] == c)
-        return (s_new + i);
-    return ((char *)NULL); 
+	if (s_new[i] == (char)c)
+		return (s_new + i);
+	return ((char *) NULL);
 }
 
 /*

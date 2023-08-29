@@ -1,52 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/07 21:43:13 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:36:58 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include"libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+/*
+void	*ft_bzero(void *s, size_t n)
 {
-	const unsigned char	*new;
+	char	*new;
+	int n_int;
+	int i;
 
-	new = (unsigned char *)s;
-	while (n-- != 0)
+	i = 0;
+	n_int = (int)n;
+	new = (char *)s;
+	while (i != n_int)
 	{
-		if ((unsigned char)c == *new++)
-			return ((void *)(new - 1));
+		new[i] = '\0';
+		i++;
 	}
-	return (NULL);
+	return ((void *)s);
+}
+*/
+
+void	*ft_calloc(size_t number_elements, size_t element_size)
+{
+	void	*ptr;
+
+	if (number_elements * element_size > 2147483647)
+	{
+		return (NULL);
+	}
+	ptr = malloc (number_elements * element_size);
+	if (ptr == 0)
+	{
+		return (ptr);
+	}
+	ft_bzero(ptr, number_elements * element_size);
+	return (ptr);
 }
 
 /*
-int	main(void)
+int main(void)
 {
 	
-	//void *s;
-	size_t n;
-	char s[] = {0, 1, 2 ,3 ,4 ,5};
-	char c;
-	char *result;
-	//char *result1;
-
-	n = 0;	
-	//s =  str;
-	c = 0;
-	result = ft_memchr(s, c, n);
-	//result1 = ft_memchr(s, c, n);
-	printf("%s \n", result);
-	//printf("%s \n", result1);
+	ft_calloc(5, 3);
 	
-	
-	//int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
-	//printf("%s", (char *)ft_memchr(tab, -1, 7));
 	return (0);
 }
 */

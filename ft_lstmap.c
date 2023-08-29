@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 13:59:24 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/07 18:21:56 by mrizakov         ###   ########.fr       */
+/*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
+/*   Updated: 2022/12/06 19:27:58 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
+#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	while ((*s != '\0') && (*s != (char)c))
-		s++;
-	if (*s == (char)c)
-		return ((char *)s);
-	return ((char *) NULL);
-}
+	t_list	*new_list;
+	t_list	*new_node;
 
-/*
-int	main(void)
-{
-	int c;
-	
-	
-	char s[] = "tripouille";
-	c = '\0';
-	printf("found %s ", ft_strchr(s, 't' + 256));
-	
-	
-	return (0);
+	new_list = NULL;
+	while (lst != NULL)
+	{
+		new_node = ft_lstnew((*f)(lst->content));
+		if (new_node == NULL)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
+	}
+	return (new_list);
 }
-*/

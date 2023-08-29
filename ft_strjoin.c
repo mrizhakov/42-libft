@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 21:45:43 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/07 21:48:33 by mrizakov         ###   ########.fr       */
+/*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
+/*   Updated: 2023/01/07 21:13:09 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<stdio.h>
+#include<stdlib.h>
 #include"libft.h"
-#include<unistd.h>
 
 /*
 int	ft_strlen(char *str)
@@ -27,38 +28,39 @@ int	ft_strlen(char *str)
 }
 */
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
+	char			*new_str;
+	unsigned int	i;
+	unsigned int	y;
 
+	new_str = malloc (ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
+	if (!new_str)
+		return ((void *) NULL);
 	i = 0;
-	if (size > 0)
+	y = 0;
+	while (s1[i] != '\0')
 	{
-		while (src[i] && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	while (src[i])
+		new_str[i] = s1[i];
 		i++;
-	return (i);
-}
+	}
+	while (s2[y] != '\0')
+	{
+		new_str[i] = s2[y];
+		i++;
+		y++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
+}	
 /*
 int main(void)
 {
-	char dst[] = "rrrrrr\0\0\0\0\0\0\0\0\0";
-	char src[] = "lorem ipsum";
-	unsigned int size = 3;
-	int result;
+	char	s1[] = "lorem ipsum";
+	char	s2[] = "dolor sit amet";
+
+	printf("%s", ft_strjoin(s1, s2));
 	
-	result = ft_strlcpy(dst, src, size);
-	printf("%d \n", result); 
-
-	printf("%s \n", dst);
-	printf("%s \n", src);
-
-	return (result);
+	return (0);
 }
 */

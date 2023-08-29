@@ -6,13 +6,13 @@
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 13:59:24 by mrizakov          #+#    #+#             */
-/*   Updated: 2022/12/04 17:16:38 by mrizakov         ###   ########.fr       */
+/*   Updated: 2023/01/07 21:21:16 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <stddef.h>
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	counter;
 

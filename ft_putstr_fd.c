@@ -1,38 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 13:59:24 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/07 18:21:56 by mrizakov         ###   ########.fr       */
+/*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
+/*   Updated: 2023/01/07 17:33:42 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
+#include"libft.h"
 
-char	*ft_strchr(const char *s, int c)
+#include<stdio.h>
+#include<stdlib.h>
+#include <fcntl.h>
+
+/*
+void	ft_putchar_fd(char c, int fd)
 {
-	while ((*s != '\0') && (*s != (char)c))
+	write(fd, &c, 1);
+}
+*/
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	while (*s)
+	{
+		ft_putchar_fd(*s, fd);
 		s++;
-	if (*s == (char)c)
-		return ((char *)s);
-	return ((char *) NULL);
+	}
 }
 
 /*
-int	main(void)
+int main(void)
 {
-	int c;
+    char 	*str = "hello there";;
+	int		fd;
+	char 	*file_name;
 	
-	
-	char s[] = "tripouille";
-	c = '\0';
-	printf("found %s ", ft_strchr(s, 't' + 256));
-	
-	
-	return (0);
+
+	file_name = "text.txt";
+
+	fd = open(file_name, O_RDWR);
+	//str = "hello there";
+	ft_putstr_fd(str, fd);
+    return (0);
 }
 */

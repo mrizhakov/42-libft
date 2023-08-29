@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrizakov <mrizakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 13:59:24 by mrizakov          #+#    #+#             */
-/*   Updated: 2023/01/07 18:21:56 by mrizakov         ###   ########.fr       */
+/*   Created: 2022/12/02 19:56:29 by mrizakov          #+#    #+#             */
+/*   Updated: 2022/12/06 19:27:58 by mrizakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
+#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	while ((*s != '\0') && (*s != (char)c))
-		s++;
-	if (*s == (char)c)
-		return ((char *)s);
-	return ((char *) NULL);
+	if (!del)
+		return ;
+	del(lst->content);
+	free(lst);
 }
-
-/*
-int	main(void)
-{
-	int c;
-	
-	
-	char s[] = "tripouille";
-	c = '\0';
-	printf("found %s ", ft_strchr(s, 't' + 256));
-	
-	
-	return (0);
-}
-*/
